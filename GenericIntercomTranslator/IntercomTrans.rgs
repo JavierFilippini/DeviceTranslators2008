@@ -1,0 +1,25 @@
+HKCR
+{
+	GenericIntercomTranslator.IntercomTrans.1 = s 'IntercomTrans Class'
+	{
+		CLSID = s '{0A4DBCA1-1160-11D4-86EB-00C04F5807EA}'
+	}
+	GenericIntercomTranslator.IntercomTrans = s 'IntercomTrans Class'
+	{
+		CLSID = s '{0A4DBCA1-1160-11D4-86EB-00C04F5807EA}'
+		CurVer = s 'GenericIntercomTranslator.IntercomTrans.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {0A4DBCA1-1160-11D4-86EB-00C04F5807EA} = s 'IntercomTrans Class'
+		{
+			ProgID = s 'GenericIntercomTranslator.IntercomTrans.1'
+			VersionIndependentProgID = s 'GenericIntercomTranslator.IntercomTrans'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{629705F6-145E-11D4-86EE-00C04F5807EA}'
+		}
+	}
+}

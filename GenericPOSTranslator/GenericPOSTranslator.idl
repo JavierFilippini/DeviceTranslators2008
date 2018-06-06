@@ -1,0 +1,39 @@
+// GenericPOSTranslator.idl : IDL source for GenericPOSTranslator.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (GenericPOSTranslator.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+#include "..\..\Inc32\Interfaces\IDistribute.idl"
+#include "..\..\Inc32\Interfaces\ITranslate.idl"
+#include "..\..\Inc32\Interfaces\IComConfig.idl"
+
+#ifndef _LNL_ACS_RPC_INVOKED
+#define _LNL_ACS_RPC_INVOKED
+#include "lmsgtype.h"
+#endif
+
+[
+	uuid(5CA44D5E-66C8-4B67-AA92-3E068212EC6A),
+	version(1.0),
+	helpstring("GenericPOSTranslator 1.0 Type Library")
+]
+library GENERICPOSTRANSLATORLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(9E82F19A-5957-4039-8606-204D4C18F7AD),
+		helpstring("TransPOS Class")
+	]
+	coclass TransPOS
+	{
+		[default] interface ITranslate;
+		interface IComConfig;
+		[default, source] interface IDistributeEvent;
+	};
+};

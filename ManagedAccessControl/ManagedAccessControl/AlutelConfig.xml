@@ -1,0 +1,9 @@
+<ConfigParameters>
+  <ConfigParameter id="IDOrganizacion" value="7" />
+  <ConfigParameter id="IPwsAlutelMobilityAPI" value="10.0.0.1" />  <!-- Es OnGuardAPI -->
+  <ConfigParameter id="IPwsAlutelOGAPI" value="10.0.0.1" />  <!-- Es DataConduITAPI -->
+  <ConfigParameter id="IPLicenseAPI" value="10.0.0.1" />
+  <ConfigParameter id="Token" value="gLdhHaSIcrroCEj9IRvheDljhFBvyD/GBCSHm7ArF5M=" />
+  <ConfigParameter id="DefaultBadgeType" value="1" />
+  <ConfigParameter id="DefaultBadgeStatus" value="1" />
+</ConfigParameters>

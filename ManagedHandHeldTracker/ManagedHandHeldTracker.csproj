@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{080302BF-7A58-4825-A0F7-FE2B135A365D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ManagedHandHeldTracker</RootNamespace>
+    <AssemblyName>ALUTELCustomOptionsManaged</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\dll\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="itextsharp, Version=4.1.6.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\Newtonsoft.Json.11.0.2\lib\net35\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BufferManager.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="Device.cs" />
+    <Compile Include="Employee.cs" />
+    <Compile Include="eventInfoTemplate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="eventInfoTemplate.Designer.cs">
+      <DependentUpon>eventInfoTemplate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddDeviceUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddDeviceUser.Designer.cs">
+      <DependentUpon>frmAddDeviceUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddTarjetaMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddTarjetaMaster.Designer.cs">
+      <DependentUpon>frmAddTarjetaMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDefineConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDefineConfig.Designer.cs">
+      <DependentUpon>frmDefineConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEventInfoInvalidAccess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEventInfoInvalidAccess.Designer.cs">
+      <DependentUpon>frmEventInfoInvalidAccess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEventinfoValidAccess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEventinfoValidAccess.Designer.cs">
+      <DependentUpon>frmEventinfoValidAccess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmExtendedFeatures.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmExtendedFeatures.Designer.cs">
+      <DependentUpon>frmExtendedFeatures.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHistoricalTracking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHistoricalTracking.Designer.cs">
+      <DependentUpon>frmHistoricalTracking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLiveTracking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLiveTracking.Designer.cs">
+      <DependentUpon>frmLiveTracking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLiveTrackingVG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLiveTrackingVG.Designer.cs">
+      <DependentUpon>frmLiveTrackingVG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmManageDeviceUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmManageDeviceUsers.Designer.cs">
+      <DependentUpon>frmManageDeviceUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmManageIMEI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmManageIMEI.Designer.cs">
+      <DependentUpon>frmManageIMEI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMessages.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMessages.Designer.cs">
+      <DependentUpon>frmMessages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMustering.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMustering.Designer.cs">
+      <DependentUpon>frmMustering.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPersonasMustering.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPersonasMustering.Designer.cs">
+      <DependentUpon>frmPersonasMustering.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmProperties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProperties.Designer.cs">
+      <DependentUpon>frmProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSetConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSetConfig.Designer.cs">
+      <DependentUpon>frmSetConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTarjetasMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTarjetasMaster.Designer.cs">
+      <DependentUpon>frmTarjetasMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUpdateIMEI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUpdateIMEI.Designer.cs">
+      <DependentUpon>frmUpdateIMEI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmZoneDefinition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmZoneDefinition.Designer.cs">
+      <DependentUpon>frmZoneDefinition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers.cs" />
+    <Compile Include="ManagedTracker.cs" />
+    <Compile Include="PDFHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tarjeta.cs" />
+    <Compile Include="TarjetaMaster.cs" />
+    <Compile Include="WebService.cs" />
+    <Compile Include="Zone.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="eventInfoTemplate.resx">
+      <DependentUpon>eventInfoTemplate.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BubbleEnd.txt" />
+    <EmbeddedResource Include="BubbleStart.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="encodedIcon.txt" />
+    <EmbeddedResource Include="frmAddDeviceUser.resx">
+      <DependentUpon>frmAddDeviceUser.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddTarjetaMaster.resx">
+      <DependentUpon>frmAddTarjetaMaster.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDefineConfig.resx">
+      <DependentUpon>frmDefineConfig.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEventInfoInvalidAccess.resx">
+      <DependentUpon>frmEventInfoInvalidAccess.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEventinfoValidAccess.resx">
+      <DependentUpon>frmEventinfoValidAccess.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmExtendedFeatures.resx">
+      <DependentUpon>frmExtendedFeatures.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHistoricalTracking.resx">
+      <DependentUpon>frmHistoricalTracking.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLiveTracking.resx">
+      <DependentUpon>frmLiveTracking.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLiveTrackingVG.resx">
+      <DependentUpon>frmLiveTrackingVG.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmManageDeviceUsers.resx">
+      <DependentUpon>frmManageDeviceUsers.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmManageIMEI.resx">
+      <DependentUpon>frmManageIMEI.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMessages.resx">
+      <DependentUpon>frmMessages.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMustering.resx">
+      <DependentUpon>frmMustering.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPersonasMustering.resx">
+      <DependentUpon>frmPersonasMustering.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProperties.resx">
+      <DependentUpon>frmProperties.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTarjetasMaster.resx">
+      <DependentUpon>frmTarjetasMaster.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUpdateIMEI.resx">
+      <DependentUpon>frmUpdateIMEI.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmZoneDefinition.resx">
+      <DependentUpon>frmZoneDefinition.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="frmSetConfig.resx">
+      <DependentUpon>frmSetConfig.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MapLENELV3.html" />
+    <EmbeddedResource Include="mapstractionCode.js" />
+    <EmbeddedResource Include="MapZoneDefV3.html" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,45 @@
+// GenericAccessControl.idl : IDL source for GenericAccessControl.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (GenericAccessControl.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+#include "..\..\Inc32\Interfaces\IDistribute.idl"
+#include "..\..\Inc32\Interfaces\ITranslate.idl"
+#include "..\..\Inc32\Interfaces\IComConfig.idl"
+#include "..\..\Inc32\Interfaces\IOutput.idl"
+#include "..\..\Inc32\Interfaces\IInput.idl"
+#include "..\..\Inc32\Interfaces\IAccessControl.idl"
+
+#ifndef _LNL_ACS_RPC_INVOKED
+#define _LNL_ACS_RPC_INVOKED
+#include "lmsgtype.h"
+#endif
+
+[
+	uuid(10D29B6D-8163-4CF0-9798-0BA853B3B6FA),
+	version(1.0),
+	helpstring("GenericAccessControl 1.0 Type Library")
+]
+library GENERICACCESSCONTROLLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(1E76211B-BE63-4B0C-BA75-A85B44AC2DD0),
+		helpstring("AccessControlTrans Class")
+	]
+	coclass AccessControlTrans
+	{
+		[default] interface ITranslate;
+		interface IOutput;
+		interface IInput;
+		interface IAccessControl;
+		interface IComConfig;
+		[default, source] interface IDistributeEvent;
+	};
+};

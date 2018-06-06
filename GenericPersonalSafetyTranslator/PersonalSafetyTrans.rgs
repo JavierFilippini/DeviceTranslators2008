@@ -1,0 +1,25 @@
+HKCR
+{
+	GenericPersonalSafetyTranslator.PersonalSafetyTrans.1 = s 'PersonalSafetyTrans Class'
+	{
+		CLSID = s '{0A4DBCC1-1160-11D4-86EB-00C04F5807EA}'
+	}
+	GenericPersonalSafetyTranslator.PersonalSafetyTrans = s 'PersonalSafetyTrans Class'
+	{
+		CLSID = s '{0A4DBCC1-1160-11D4-86EB-00C04F5807EA}'
+		CurVer = s 'GenericPersonalSafetyTranslator.PersonalSafetyTrans.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {0A4DBCC1-1160-11D4-86EB-00C04F5807EA} = s 'PersonalSafetyTrans Class'
+		{
+			ProgID = s 'GenericPersonalSafetyTranslator.PersonalSafetyTrans.1'
+			VersionIndependentProgID = s 'GenericPersonalSafetyTranslator.PersonalSafetyTrans'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{62970607-145E-11D4-86EE-00C04F5807EA}'
+		}
+	}
+}

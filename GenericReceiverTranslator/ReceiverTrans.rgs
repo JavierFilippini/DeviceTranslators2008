@@ -1,0 +1,25 @@
+HKCR
+{
+	GenericReceiverTranslator.ReceiverTrans.1 = s 'ReceiverTrans Class'
+	{
+		CLSID = s '{5BEDDAF9-22D5-402F-9BA5-22BBDBC151E9}'
+	}
+	GenericReceiverTranslator.ReceiverTrans = s 'ReceiverTrans Class'
+	{
+		CLSID = s '{5BEDDAF9-22D5-402F-9BA5-22BBDBC151E9}'
+		CurVer = s 'GenericReceiverTranslator.ReceiverTrans.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {5BEDDAF9-22D5-402F-9BA5-22BBDBC151E9} = s 'ReceiverTrans Class'
+		{
+			ProgID = s 'GenericReceiverTranslator.ReceiverTrans.1'
+			VersionIndependentProgID = s 'GenericReceiverTranslator.ReceiverTrans'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{51E34699-0C6E-4623-A699-705F28FADDCD}'
+		}
+	}
+}

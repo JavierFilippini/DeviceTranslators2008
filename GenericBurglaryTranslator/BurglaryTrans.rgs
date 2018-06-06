@@ -1,0 +1,25 @@
+HKCR
+{
+	GenericBurglaryTranslator.BurglaryTrans.1 = s 'BurglaryTrans Class'
+	{
+		CLSID = s '{0A4DBCB1-1160-11D4-86EB-00C04F5807EA}'
+	}
+	GenericBurglaryTranslator.BurglaryTrans = s 'BurglaryTrans Class'
+	{
+		CLSID = s '{0A4DBCB1-1160-11D4-86EB-00C04F5807EA}'
+		CurVer = s 'GenericBurglaryTranslator.BurglaryTrans.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {0A4DBCB1-1160-11D4-86EB-00C04F5807EA} = s 'BurglaryTrans Class'
+		{
+			ProgID = s 'GenericBurglaryTranslator.BurglaryTrans.1'
+			VersionIndependentProgID = s 'GenericBurglaryTranslator.BurglaryTrans'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{629705E5-145E-11D4-86EE-00C04F5807EA}'
+		}
+	}
+}

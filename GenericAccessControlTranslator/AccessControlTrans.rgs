@@ -1,0 +1,26 @@
+HKCR
+{
+	GenericAccessControlTranslator.AccessControlTrans.1 = s 'AccessControlTrans Class'
+	{
+		CLSID = s '{1E76211B-BE63-4B0C-BA75-A85B44AC2DD0}'
+
+	}
+	GenericAccessControlTranslator.AccessControlTrans = s 'AccessControlTrans Class'
+	{
+		CLSID = s '{1E76211B-BE63-4B0C-BA75-A85B44AC2DD0}'
+		CurVer = s 'GenericAccessControlTranslator.AccessControlTrans.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {1E76211B-BE63-4B0C-BA75-A85B44AC2DD0} = s 'AccessControlTrans Class'
+		{
+			ProgID = s 'GenericAccessControlTranslator.AccessControlTrans.1'
+			VersionIndependentProgID = s 'GenericAccessControlTranslator.AccessControlTrans'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{10D29B6D-8163-4CF0-9798-0BA853B3B6FA}'
+		}
+	}
+}

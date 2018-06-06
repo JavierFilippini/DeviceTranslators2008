@@ -1,0 +1,26 @@
+HKCR
+{
+	VirtualGateAccessControlTranslator.VirtualGateTrans.1 = s 'VirtualGateTrans Class'
+	{
+		CLSID = s '{319694D3-C473-4346-BE02-E512DE9E4D5E}'
+
+	}
+	VirtualGateAccessControlTranslator.VirtualGateTrans = s 'VirtualGateTrans Class'
+	{
+		CLSID = s '{319694D3-C473-4346-BE02-E512DE9E4D5E}'
+		CurVer = s 'VirtualGateAccessControlTranslator.VirtualGateTrans.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {319694D3-C473-4346-BE02-E512DE9E4D5E} = s 'VirtualGateTrans Class'
+		{
+			ProgID = s 'VirtualGateAccessControlTranslator.VirtualGateTrans.1'
+			VersionIndependentProgID = s 'VirtualGateAccessControlTranslator.VirtualGateTrans'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{336FD619-DC64-49BF-9568-741B36AC7A01}'
+		}
+	}
+}

@@ -1,0 +1,41 @@
+// GenericElevatorTranslator.idl : IDL source for GenericElevatorTranslator.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (GenericElevatorTranslator.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+
+#include "..\..\inc32\Interfaces\IDistribute.idl"
+#include "..\..\inc32\Interfaces\ITranslate.idl"
+#include "..\..\inc32\Interfaces\IComConfig.idl"
+#include "..\..\inc32\Interfaces\IElevatorDispatching.idl"
+
+
+[
+	uuid(3303C61B-AF84-4317-A831-D8A698156E21),
+	version(1.0),
+	helpstring("GenericElevatorTranslator 1.0 Type Library")
+
+]
+library GENERICELEVATORTRANSLATORLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	
+	[
+		uuid(DF8AE50F-5DD7-4566-B58D-040F708E3133),
+		helpstring("ElevatorTrans Class")
+	]
+	coclass ElevatorTrans
+	{
+		[default] interface ITranslate;
+		interface IComConfig;
+		interface IElevatorDispatching;
+		[default, source] interface IDistributeEvent;
+	};
+
+};

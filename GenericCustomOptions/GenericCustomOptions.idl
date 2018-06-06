@@ -1,0 +1,29 @@
+// GenericCustomOptions.idl : IDL source for CustomOptions
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (CustomOptions.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+#include "..\..\Inc32\Interfaces\ICustomMenu.idl"
+[
+	uuid(6F35E931-54A8-4701-A12D-AAE155CBFB2A),
+	version(1.0),
+	helpstring("GenericCustomOptions 1.0 Type Library")
+]
+library GenericCustomOptionsLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(4CE58E29-F6A0-458b-9334-19960BF9210C),
+		helpstring("LnlTransCustomOptions Class")
+	]
+	coclass LnlTransCustomOptions
+	{
+		[default] interface IUnknown;
+	};
+};

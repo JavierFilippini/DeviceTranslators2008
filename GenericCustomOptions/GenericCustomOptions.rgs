@@ -1,0 +1,11 @@
+HKCR
+{
+	NoRemove AppID
+	{
+		'%APPID%' = s 'GenericCustomOptions'
+		'LnlGenericCustomOptions.DLL'
+		{
+			val AppID = s '%APPID%'
+		}
+	}
+}

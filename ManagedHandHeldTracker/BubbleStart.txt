@@ -1,0 +1,1 @@
+<html><head><style>table {border-collapse: collapse;}table, td, th {border: 1px solid black;font-family: Verdana;font-size: 12px;}</style></head><body><div id="Layer1" style="width:[WIDTH]px; height:[HEIGHT]px; overflow-y: scroll; border:1px solid black; "><font face="verdana" size = "2" ><b>[HEADER]</b></font><table class="ex1" border="1">

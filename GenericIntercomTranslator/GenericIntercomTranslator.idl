@@ -1,0 +1,43 @@
+// GenericIntercomTranslator.idl : IDL source for GenericIntercomTranslator.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (GenericIntercomTranslator.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+#include "..\..\Inc32\Interfaces\IDistribute.idl"
+#include "..\..\Inc32\Interfaces\ITranslate.idl"
+#include "..\..\Inc32\Interfaces\IComConfig.idl"
+#include "..\..\Inc32\Interfaces\IIntercom.idl"
+
+#ifndef _LNL_ACS_RPC_INVOKED
+#define _LNL_ACS_RPC_INVOKED
+#include "lmsgtype.h"
+#endif
+
+
+[
+	uuid(0A4DBC91-1160-11D4-86EB-00C04F5807EA),
+	version(1.0),
+	helpstring("GenericIntercomTranslator 1.0 Type Library")
+]
+library GENERICINTERCOMTRANSLATORLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+
+	[
+		uuid(0A4DBCA1-1160-11D4-86EB-00C04F5807EA),
+		helpstring("IntercomTrans Class")
+	]
+	coclass IntercomTrans
+	{
+		[default] interface ITranslate;
+		interface IComConfig;
+		interface IIntercom;
+		[default, source] interface IDistributeEvent;
+	};
+};

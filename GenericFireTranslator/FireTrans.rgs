@@ -1,0 +1,26 @@
+HKCR
+{
+	GenericFireTranslator.FireTrans.1 = s 'FireTrans Class'
+	{
+		CLSID = s '{185C2351-0BBA-11D4-86E2-00C04F5807EA}'
+	}
+	GenericFireTranslator.FireTrans = s 'FireTrans Class'
+	{
+		CLSID = s '{185C2351-0BBA-11D4-86E2-00C04F5807EA}'
+		CurVer = s 'GenericFireTranslator.FireTrans.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {185C2351-0BBA-11D4-86E2-00C04F5807EA} = s 'FireTrans Class'
+		{
+			ProgID = s 'GenericFireTranslator.FireTrans.1'
+			VersionIndependentProgID = s 'GenericFireTranslator.FireTrans'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{629705C3-145E-11D4-86EE-00C04F5807EA}'
+		}
+	}
+}

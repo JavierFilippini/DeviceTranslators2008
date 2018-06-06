@@ -1,0 +1,39 @@
+// GenericFireTranslator.idl : IDL source for GenericFireTranslator.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (GenericFireTranslator.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+#include "..\..\Inc32\Interfaces\IDistribute.idl"
+#include "..\..\Inc32\Interfaces\ITranslate.idl"
+#include "..\..\Inc32\Interfaces\IComConfig.idl"
+
+#ifndef _LNL_ACS_RPC_INVOKED
+#define _LNL_ACS_RPC_INVOKED
+#include "lmsgtype.h"
+#endif
+
+[
+	uuid(185C2343-0BBA-11D4-86E2-00C04F5807EA),
+	version(1.0),
+	helpstring("GenericFireTranslator 1.0 Type Library")
+]
+library GENERICFIRETRANSLATORLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(185C2351-0BBA-11D4-86E2-00C04F5807EA),
+		helpstring("FireTrans Class")
+	]
+	coclass FireTrans
+	{
+		[default] interface ITranslate;
+		interface IComConfig;
+		[default, source] interface IDistributeEvent;
+	};
+};

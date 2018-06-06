@@ -1,0 +1,427 @@
+<html>
+<head>
+   	<title>Mapstraction</title>
+   	<script src="http://openlayers.org/api/OpenLayers.js"></script>
+   	<script languaje="javascript" type="text/javascript">
+[MAPSTRACTIONCODE]	
+	</script>
+	
+   	<style type="text/css">
+	#map 
+	{
+		margin: 0;
+        padding: 0;
+		height: 100%;
+		border: 1px solid black;
+	}
+	</style>
+</head>
+<body>
+	<div id="map"></div>
+	<script type="text/javascript">
+
+    try
+    {
+    if (mxn === undefined)
+    {
+    window.location.reload(true);
+
+    }
+
+    var yaCargo = false;
+    var map = new mxn.Mapstraction('map', 'openlayers');
+    var initPos = new mxn.LatLonPoint(-34.89593, -56.18258);
+    map.setCenterAndZoom(initPos, 16);
+
+    map.enableScrollWheelZoom();
+
+    var actualLatLng="0,0";
+    var markerArray = new Array();
+
+    // Coleccion de puertas. Todas las puertas del mapa, de todas las zonas: todas.
+    var gates = new Array();
+
+    var FlagAddMarker = false;
+    var mapCoords = {};
+
+    map.click.addHandler(AgregarMarker);
+
+    }
+    catch (e)
+    {
+    }
+    window.onload = function()
+    {
+    yaCargo = true;
+    }
+    function isLoaded()
+    {
+    return yaCargo;
+    }
+
+    function MoverPunto(eventName, eventSource, eventArgs)
+    {
+    ActualizarPuntoActual(eventArgs.location);
+    }
+    function flagAgregarTrue()
+    {
+    FlagAddMarker = true;
+    }
+
+    function flagAgregarFalse()
+    {
+    FlagAddMarker = false;
+    }
+
+    function AgregarMarker(eventName, eventSource, eventArgs)
+    {
+    actualLatLng = eventArgs.location;
+    if (FlagAddMarker)
+    {
+    indice = markerArray.length;
+    markerArray[indice] =  new mxn.Marker(actualLatLng);
+
+    var iconSize = new Array();
+    iconSize.push(24);
+    iconSize.push(38);
+
+    var iconAnchor = new Array();
+    iconAnchor.push(12);
+    iconAnchor.push(38);
+
+    markerArray[indice].setIcon("[ENCODEDICON]", iconSize, iconAnchor);
+
+    map.addMarker(markerArray[indice]);
+    }
+    }
+
+    function actualCoords()
+    {
+    return actualLatLng;
+    }
+
+     /// Version de vermarkers que usa Map por nombre de device  (mapCoords) para permitir actualizaciones parciales.
+     function verMarkers2(listaCoords)
+    {
+        if (map === undefined)
+        {
+        return "ok";
+        }
+
+        if (markerArray === undefined)
+        {
+        return "ok";
+        }
+
+        if (mxn === undefined)
+        {
+        return "ok";
+        }
+        if (markerArray.length == undefined)
+        {
+        return "ok";
+        }
+
+        var coordArray = listaCoords.split(",");	// Convierte el array serializado de coordenadas en array nuevamente
+        var iconSize = new Array();
+        iconSize.push(24);
+        iconSize.push(38);
+
+        var iconAnchor = new Array();
+        iconAnchor.push(12);
+        iconAnchor.push(38);
+
+        for (i=0; i<coordArray.length; i=i+3) 
+        {
+
+            var keyMap = coordArray[i];
+            var posToAdd = new mxn.LatLonPoint(coordArray[i+1],coordArray[i+2]);
+            if (mapCoords[keyMap]==undefined)
+            {
+              mapCoords[keyMap] =  new mxn.Marker(posToAdd);
+              mapCoords[keyMap].setIcon("[ENCODEDICON]", iconSize, iconAnchor);
+
+              map.addMarker(mapCoords[keyMap]);
+            }
+            else
+            {
+              // Borro y vuelvo a agregar porque no encontre Marker.SetPosition() en MapStraction
+              map.removeMarker(mapCoords[keyMap]);
+              mapCoords[keyMap] =  new mxn.Marker(posToAdd);
+              mapCoords[keyMap].setIcon("[ENCODEDICON]", iconSize, iconAnchor);
+
+              map.addMarker(mapCoords[keyMap]);
+            }
+         }
+    }
+
+
+
+    // Actualizacion de posiciones de Markers:
+    // Actualiza los markers ya creados o crea nuevos. Por ultimo borra los no actualizados.
+    //function verMarkers(listaCoords, listaBubble)
+    function verMarkers(listaCoords)
+    {
+    if (map === undefined)
+    {
+    return "ok";
+    }
+
+    if (markerArray === undefined)
+    {
+    return "ok";
+    }
+
+    if (mxn === undefined)
+    {
+    return "ok";
+    }
+    if (markerArray.length == undefined)
+    {
+    return "ok";
+    }
+
+    var coordArray = listaCoords.split(",");	// Convierte el array serializado de coordenadas en array nuevamente
+	
+	//var bubbleArray = listaBubble.split("|"); 	// Convierte el array serializado de info bubbles en array nuevamente
+    var markersToDel = new Array();
+    var indice =0;
+
+    var iconSize = new Array();
+    iconSize.push(24);
+    iconSize.push(38);
+
+    var iconAnchor = new Array();
+    iconAnchor.push(12);
+    iconAnchor.push(38);
+
+	//var indexBubble =0;
+    for (i=0; i<coordArray.length; i=i+2) 
+	{
+		var posToAdd = new mxn.LatLonPoint(coordArray[i],coordArray[i+1]);
+		if (indice >=markerArray.length)
+        {
+          markerArray[indice] =  new mxn.Marker(posToAdd);
+          markerArray[indice].setIcon("[ENCODEDICON]", iconSize, iconAnchor);
+
+          //if (bubbleArray.length>indexBubble)
+          //{
+		  	//markerArray[indice].setInfoBubble(bubbleArray[indexBubble]);
+		  //}
+
+          map.addMarker(markerArray[indice]);
+        }
+        else
+        {
+          // Borro y vuelvo a agregar porque no encontre Marker.SetPosition() en MapStraction
+          map.removeMarker(markerArray[indice]);
+          markerArray[indice] =  new mxn.Marker(posToAdd);
+          markerArray[indice].setIcon("[ENCODEDICON]", iconSize, iconAnchor);
+
+          //if (bubbleArray.length>indexBubble)
+          //{
+			  //markerArray[indice].setInfoBubble(bubbleArray[indexBubble]);
+	      //}
+
+          map.addMarker(markerArray[indice]);
+        }
+        
+        //indexBubble++;
+        indice++;
+     }
+
+        // Paso final: Borro los markers que no fueron actualizados.
+        for (i = indice; i<markerArray.length; i++)
+			  {
+				  //markerArray[i].setMap(null);
+				  map.removeMarker(markerArray[i]);
+			  }
+			return "ok";
+		}	
+		
+	    // Las zonas se definen como un conjunto de gates con colores.
+        function verZonas(datosZonas) 
+		{
+		    if (gates === undefined)
+	         {
+		        return "ok";
+		     }
+		     
+		     if (datosZonas === undefined)
+	         {
+		        return "ok";
+		     }		
+		
+			// Primero borro todas las zonas previamente definidas.
+            for (var indice = 0; indice < gates.length; indice++) 
+            {
+				      map.removePolyline(gates[indice]);
+            }
+           
+            var datosZonas = datosZonas.split("|");
+
+            for (var indice = 0; indice < datosZonas.length; indice++) 
+            {
+                datosPuertas = datosZonas[indice].split(",");
+                var primero = "";
+                for (i = 0; i < datosPuertas.length; i = i + 5) 
+                {
+                    latFrom = datosPuertas[i];
+                    lngFrom = datosPuertas[i + 1];
+
+                    latTo = datosPuertas[i + 2];
+                    lngTo = datosPuertas[i + 3];
+
+                    color = datosPuertas[i + 4];
+              
+                    var posFrom = new mxn.LatLonPoint(latFrom, lngFrom);
+                    var posTo = new mxn.LatLonPoint(latTo, lngTo);
+
+                    var pointsInGate = new Array();
+
+                    pointsInGate[0] = posFrom;
+                    pointsInGate[1] = posTo;
+
+                    var ind = gates.length;
+                    gates[ind] = new mxn.Polyline(pointsInGate);	// Aqui da de alta la gate
+			              gates[ind].setColor(color);
+			              gates[ind].setWidth(3);
+			              map.addPolyline(gates[ind]);
+				      }
+           }
+        }
+	    
+	    function setPos(geoCoord)
+	    {
+			var coordArray = geoCoord.split(",");	// Convierte el array serializado en array nuevamente
+			var posToResaltar =new mxn.LatLonPoint(coordArray[0],coordArray[1]);
+			var zoomLevel = parseInt(coordArray[2]);
+			map.setCenterAndZoom(posToResaltar, zoomLevel);
+		}
+		
+		function centrarMapa(lat,lng)
+	  {
+	        if (map === undefined)
+		    {
+		        return "ok"; 
+		    }
+		    
+		    if (mxn === undefined)
+		    {
+		        return "ok";
+		    }
+	    
+    	  var posToResaltar =new mxn.LatLonPoint(lat,lng);
+			  map.setCenter(posToResaltar);
+	  }
+		
+		// Hace zoom centrado en la lista de gates actualmente cargada
+	    function zoomToFitZone()
+        {
+            if (gates === undefined)
+	        {
+		       return "ok";
+		    }
+		    
+		    if (mxn === undefined)
+		    {
+		        return "ok";
+		    }
+		    
+		    if (map === undefined)
+		    {
+		        return "ok"; 
+		    }
+        
+			if (gates.length>0)
+			{
+				var pos1 = gates[0].points[0];
+				var bounds = new mxn.BoundingBox(pos1.lat,pos1.lon,pos1.lat,pos1.lon);
+				
+				for(var i=1; i<gates.length-1; i++)
+				{
+					bounds.extend(gates[i].points[0]);
+				}
+			
+				map.setBounds(bounds);
+			}
+		}
+		 
+		function ZoomIn(deltaZoom)
+		{
+			map.setZoom(map.getZoom()+deltaZoom);			// Mapstraction = gogleMaps APIV3
+		}
+		
+	    function ZoomOut(deltaZoom)
+	    {
+	  	map.setZoom(map.getZoom()-deltaZoom);				// Mapstraction = gogleMaps APIV3
+	    }
+	    
+        // Borra todos los markers  usando el array (version previa compatible con las versiones anteriores)
+        function deleteAllMarkers()
+		{
+		    if (markerArray === undefined)
+		    {
+		        return "ok";
+		    }
+		
+			for(var indice in markerArray)
+			{
+			    map.removeMarker(markerArray[indice]);
+			}
+			markerArray.length=0;
+		}
+
+
+
+	    // Borra todos los markers usando el Map (Version optimizada de livetracking)
+		function deleteAllMarkersMap()
+		{
+		    if (mapCoords === undefined)
+		    {
+		        return "ok";
+		    }
+		
+            //map.removeMarker(mapCoords[keyMap]);
+
+			for(var indice in mapCoords)
+			{
+			    map.removeMarker(mapCoords[indice]);
+			}
+			mapCoords.length=0;
+		}
+		
+		// Borra todas las Gates
+		function deleteAllGates()
+		{
+		    if (gates === undefined)
+		    {
+		        return "ok";
+		    }
+		
+			for (var indice =0 ; indice < gates.length; indice++)
+			{
+				map.removePolyline(gates[indice]);
+			}
+			gates.length =0;
+		}
+		
+		function obtenerMarkers()
+		{
+		    if (markerArray === undefined)
+		    {
+		        return "ok";
+		    }
+		
+		    var res ="";
+		    
+		    for(var indice in markerArray)
+			{
+			    res = res + markerArray[indice].location.lat+","+markerArray[indice].location.lon + ",";
+			}
+			return res;
+		}
+	</script>
+</body>
+</html>	
+

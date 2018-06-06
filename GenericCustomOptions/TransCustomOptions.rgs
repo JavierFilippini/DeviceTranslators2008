@@ -1,0 +1,26 @@
+HKCR
+{
+	GenericCustomOptions.TransCustomOptions.1 = s 'TransCustomOptions'
+	{
+		CLSID = s '{4CE58E29-F6A0-458b-9334-19960BF9210C}'
+	}
+	GenericCustomOptions.TransCustomOptions.1 = s 'TransCustomOptions'
+	{
+		CLSID = s '{4CE58E29-F6A0-458b-9334-19960BF9210C}'
+		CurVer = s 'GenericCustomOptions.TransCustomOptions.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {4CE58E29-F6A0-458b-9334-19960BF9210C} = s 'TransCustomOptions'
+		{
+			ProgID = s 'GenericCustomOptions.TransCustomOptions.1'
+			VersionIndependentProgID = s 'GenericCustomOptions.TransCustomOptions'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{6F35E931-54A8-4701-A12D-AAE155CBFB2A}'
+		}
+	}
+}

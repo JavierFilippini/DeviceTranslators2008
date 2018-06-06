@@ -1,0 +1,39 @@
+// GenericReceiverTranslator.idl : IDL source for GenericReceiverTranslator.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (GenericReceiverTranslator.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+#include "..\..\Inc32\Interfaces\IDistribute.idl"
+#include "..\..\Inc32\Interfaces\ITranslate.idl"
+#include "..\..\Inc32\Interfaces\IComConfig.idl"
+
+#ifndef _LNL_ACS_RPC_INVOKED
+#define _LNL_ACS_RPC_INVOKED
+#include "lmsgtype.h"
+#endif
+
+[
+	uuid(51E34699-0C6E-4623-A699-705F28FADDCD),
+	version(1.0),
+	helpstring("GenericReceiverTranslator 1.0 Type Library")
+]
+library GENERICRECEIVERTRANSLATORLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(5BEDDAF9-22D5-402F-9BA5-22BBDBC151E9),
+		helpstring("ReceiverTrans Class")
+	]
+	coclass ReceiverTrans
+	{
+		[default] interface ITranslate;
+		interface IComConfig;
+		[default, source] interface IDistributeEvent;
+	};
+};

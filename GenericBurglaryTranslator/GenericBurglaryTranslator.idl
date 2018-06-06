@@ -1,0 +1,41 @@
+// GenericBurglaryTranslator.idl : IDL source for GenericBurglaryTranslator.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (GenericBurglaryTranslator.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+#include "..\..\Inc32\Interfaces\IDistribute.idl"
+#include "..\..\Inc32\Interfaces\ITranslate.idl"
+#include "..\..\Inc32\Interfaces\IComConfig.idl"
+#include "..\..\Inc32\Interfaces\IIntrusion.idl"
+
+#ifndef _LNL_ACS_RPC_INVOKED
+#define _LNL_ACS_RPC_INVOKED
+#include "lmsgtype.h"
+#endif
+
+[
+	uuid(0A4DBCA3-1160-11D4-86EB-00C04F5807EA),
+	version(1.0),
+	helpstring("GenericBurglaryTranslator 1.0 Type Library")
+]
+library GENERICBURGLARYTRANSLATORLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(0A4DBCB1-1160-11D4-86EB-00C04F5807EA),
+		helpstring("BurglaryTrans Class")
+	]
+	coclass BurglaryTrans
+	{
+		[default] interface ITranslate;
+		interface IIntrusion;
+		interface IComConfig;
+		[default, source] interface IDistributeEvent;
+	};
+};

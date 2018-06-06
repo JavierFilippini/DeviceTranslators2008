@@ -1,0 +1,25 @@
+HKCR
+{
+	GenericElevatorTranslator.ElevatorTrans.1 = s 'ElevatorTrans Class'
+	{
+		CLSID = s '{DF8AE50F-5DD7-4566-B58D-040F708E3133}'
+	}
+	GenericElevatorTranslator.ElevatorTrans = s 'ElevatorTrans Class'
+	{
+		CLSID = s '{DF8AE50F-5DD7-4566-B58D-040F708E3133}'
+		CurVer = s 'GenericElevatorTranslator.ElevatorTrans.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {DF8AE50F-5DD7-4566-B58D-040F708E3133} = s 'ElevatorTrans Class'
+		{
+			ProgID = s 'GenericElevatorTranslator.ElevatorTrans.1'
+			VersionIndependentProgID = s 'GenericElevatorTranslator.ElevatorTrans'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{3303C61B-AF84-4317-A831-D8A698156E21}'
+		}
+	}
+}

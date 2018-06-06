@@ -1,0 +1,25 @@
+HKCR
+{
+	GenericPOSTranslator.TransPOS.1 = s 'TransPOS Class'
+	{
+		CLSID = s '{9E82F19A-5957-4039-8606-204D4C18F7AD}'
+	}
+	GenericPOSTranslator.TransPOS = s 'TransPOS Class'
+	{
+		CLSID = s '{9E82F19A-5957-4039-8606-204D4C18F7AD}'
+		CurVer = s 'GenericPOSTranslator.TransPOS.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {9E82F19A-5957-4039-8606-204D4C18F7AD} = s 'TransPOS Class'
+		{
+			ProgID = s 'GenericPOSTranslator.TransPOS.1'
+			VersionIndependentProgID = s 'GenericPOSTranslator.TransPOS'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{5CA44D5E-66C8-4B67-AA92-3E068212EC6A}'
+		}
+	}
+}

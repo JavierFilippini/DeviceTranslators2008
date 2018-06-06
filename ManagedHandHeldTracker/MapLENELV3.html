@@ -1,0 +1,112 @@
+<html>
+<head>
+   	<title>Mapstraction</title>
+   	<script src="http://openlayers.org/api/OpenLayers.js"></script>
+	<script languaje="javascript" type="text/javascript">
+[MAPSTRACTIONCODE]	
+	</script>
+   
+   	<style type="text/css">
+	#map 
+	{
+		margin: 0;
+        padding: 0;
+		height: 100%;
+		border: 1px solid black;
+	}
+	</style>
+</head>
+<body>
+	<div id="map"></div>
+	<script type="text/javascript">
+	try
+	{
+	   if (mxn === undefined)
+	   {
+	        window.location.reload(true);
+    	   
+	   }
+	
+	  var yaCargo = false;
+		var map = new mxn.Mapstraction('map', 'openlayers'); 
+		var initPos = new mxn.LatLonPoint([LAT], [LONG]);
+
+		map.setCenterAndZoom(initPos, 16);
+		var marker = new mxn.Marker(initPos);
+		
+		var iconSize = new Array();
+		iconSize.push(24);
+		iconSize.push(38);
+		
+		
+		var iconAnchor = new Array();
+		iconAnchor.push(12);
+		iconAnchor.push(38);
+
+		marker.setIcon("[ENCODEDICON]", iconSize, iconAnchor);
+		
+		map.addMarker(marker);
+		
+		map.enableScrollWheelZoom();
+		}
+		catch (e)
+		{
+		}
+		
+		window.onload = function()  
+		{
+           yaCargo = true;
+		}	
+		function isLoaded()
+		{
+			return yaCargo;
+		}
+		
+		function setPos(geoCoord)
+	    {
+	        if (map === undefined)
+	        {
+    	        return;
+	        }
+	        
+	        if (mxn === undefined)
+	        {
+    	        return;
+	        }
+	        
+	    
+	        try
+	        {
+	  	        var coordArray = geoCoord.split(",");	// Convierte el array serializado en array nuevamente
+	            var nuevaPos = new mxn.LatLonPoint(coordArray[0],coordArray[1]);
+    	        
+                // Para cambiar la posicion de un marker lo borro y lo vuelvo a crear en la nuevaPos. (NO TIENE SetPos?).
+	            map.removeMarker(marker);
+	            marker =  new mxn.Marker(nuevaPos);
+    			
+			    var iconSize = new Array();
+		        iconSize.push(24);
+		        iconSize.push(38);
+        		
+		        var iconAnchor = new Array();
+		        iconAnchor.push(12);
+		        iconAnchor.push(38);
+        		
+      		    marker.setIcon("[ENCODEDICON]", iconSize, iconAnchor);
+                //marker.setInfoBubble('[INFOBUBBLE]');
+			    map.addMarker(marker);
+    		    
+		        if (coordArray[2] =="True")
+		        {
+			        map.setCenter(nuevaPos);
+		        }
+		      }
+		      catch(e) 
+		      {
+		      }
+	    } 
+	  
+	  	
+	</script>
+</body>
+</html>

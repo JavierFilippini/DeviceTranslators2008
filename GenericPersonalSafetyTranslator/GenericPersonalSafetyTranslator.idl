@@ -1,0 +1,42 @@
+// GenericPersonalSafetyTranslator.idl : IDL source for GenericPersonalSafetyTranslator.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (GenericPersonalSafetyTranslator.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+#include "..\..\Inc32\Interfaces\IDistribute.idl"
+#include "..\..\Inc32\Interfaces\ITranslate.idl"
+#include "..\..\Inc32\Interfaces\IComConfig.idl"
+#include "..\..\Inc32\Interfaces\IPersonalSafety.idl"
+
+#ifndef _LNL_ACS_RPC_INVOKED
+#define _LNL_ACS_RPC_INVOKED
+#include "lmsgtype.h"
+#endif
+
+
+[
+	uuid(0A4DBCB3-1160-11D4-86EB-00C04F5807EA),
+	version(1.0),
+	helpstring("GenericPersonalSafetyTranslator 1.0 Type Library")
+]
+library GENERICPERSONALSAFETYTRANSLATORLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(0A4DBCC1-1160-11D4-86EB-00C04F5807EA),
+		helpstring("PersonalSafetyTrans Class")
+	]
+	coclass PersonalSafetyTrans
+	{
+		[default] interface ITranslate;
+		interface IComConfig;
+		interface IPersonalSafety;
+		[default, source] interface IDistributeEvent;
+	};
+};
