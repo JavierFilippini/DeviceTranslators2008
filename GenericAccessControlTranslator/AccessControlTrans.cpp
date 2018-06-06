@@ -36,7 +36,7 @@ CAccessControlTrans::CAccessControlTrans()
 
 	//contAlarma=0;
 
-	CString holaString("Hello!!!");		// test de funcionamiento
+	CString holaString("Hello!!");		// test de funcionamiento
 	miManTraker->Test_Call(holaString);
 
 
